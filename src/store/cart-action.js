@@ -4,7 +4,9 @@ import { countActions } from "./shoppingCart"
 export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch("c")
+      const response = await fetch(
+        "https://carts-6874a-default-rtdb.firebaseio.com/.json"
+      )
 
       if (!response.ok) {
         throw new Error("Fetch cart data failed")
@@ -45,7 +47,7 @@ export const sendCartData = (counter) => {
 
     const sendData = async () => {
       const response = await fetch(
-        "https://task-888-default-rtdb.firebaseio.com/.json",
+        "https://carts-6874a-default-rtdb.firebaseio.com/.json",
         {
           method: "PUT",
           body: JSON.stringify({

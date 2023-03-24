@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Fragment, useEffect } from "react"
 import Notification from "./components/UI/Notification"
 import { sendCartData, fetchCartData } from "./store/cart-action"
-import { counter } from "./store/index"
+// import { counter } from "./store/index"
 // import { countActions } from "./store/shoppingCart";
 let initialState = true
 
@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCartData())
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     if (initialState) {
@@ -28,7 +28,7 @@ function App() {
     if (counter.change) {
       dispatch(sendCartData(counter))
     }
-  }, [counter])
+  }, [counter, dispatch])
 
   return (
     <Fragment>
